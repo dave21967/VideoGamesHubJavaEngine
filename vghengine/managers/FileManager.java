@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class FileManager {
     private BufferedReader br;
@@ -184,5 +187,57 @@ public class FileManager {
             oggetto = null;
         }
         return oggetto;
+    }
+    
+    public void toJson(JSONObject jobj) {
+        if(modalita.equals("w")) {
+            try {
+                this.bw.write(jobj.toJSONString());
+                System.out.println("JSON salvato con successo!");
+            }
+            catch(Exception e) {
+                System.out.println("JSON non salvato!");
+            }
+        }
+    }
+    
+    public void toJson(JSONArray jArray) {
+        if(modalita.equals("w")) {
+            try {
+                this.bw.write(jArray.toJSONString());
+                System.out.println("JSON salvato con successo!");
+            }
+            catch(Exception e) {
+                System.out.println("JSON non salvato!");
+            }
+        }
+    }
+    
+    public JSONObject fromJson() {
+        JSONObject jobj = null;
+        try {
+            if(modalita.equals("r")) {
+                JSONParser jsParser = new JSONParser();
+                jobj = (JSONObject)jsParser.parse(new FileReader(this.nome));
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return jobj;
+    }
+    
+    public JSONArray readJsonArray() {
+        JSONArray jArray = null;
+        try {
+            if(modalita.equals("r")) {
+                JSONParser jsParser = new JSONParser();
+                jArray = (JSONArray)jsParser.parse(new FileReader(this.nome));
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return jArray;
     }
 }
