@@ -5,6 +5,8 @@
  */
 package vghengine.networking;
 
+import java.net.InetAddress;
+
 /**
  *
  * @author davide
@@ -15,9 +17,18 @@ public class LoginPacket extends Packet {
     
     public LoginPacket(String usrName, String passwd) {
         super("");
-        setFlag("login");
+        setFlag(PacketTypes.LOGIN);
         setUsername(usrName);
         setPassword(passwd);
+    }
+    
+    public LoginPacket(String usrName, String passwd, InetAddress addr, int p) {
+        super("");
+        setFlag(PacketTypes.LOGIN);
+        setUsername(usrName);
+        setPassword(passwd);
+        setAddress(addr);
+        setPort(p);
     }
 
     public String getUsername() {

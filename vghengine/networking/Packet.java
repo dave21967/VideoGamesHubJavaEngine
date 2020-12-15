@@ -12,34 +12,38 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.InetAddress;
+import java.util.UUID;
 
 /**
  *
  * @author davide
  */
 public class Packet implements Serializable {
-    private String flag;
+    private PacketTypes flag;
     private String data;
     private InetAddress address;
     private int port;
+    private UUID netId;
     
     public Packet(String d) {
         setData(d);
-        setFlag("");
+        setFlag(PacketTypes.MESSAGE);
+        netId = UUID.randomUUID();
     }
     
     public Packet(String d, InetAddress addr, int p) {
         setData(d);
-        setFlag("");
+        setFlag(PacketTypes.MESSAGE);
         setAddress(addr);
         setPort(p);
+        netId = UUID.randomUUID();
     }
     
-    public String getFlag() {
+    public PacketTypes getFlag() {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(PacketTypes flag) {
         this.flag = flag;
     }
 
@@ -67,6 +71,10 @@ public class Packet implements Serializable {
         this.port = port;
     }
     
+    public UUID getNetId() {
+        return this.netId;
+    }
+    
     public static byte[] encode(Object obj) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -80,5 +88,9 @@ public class Packet implements Serializable {
         ObjectInputStream ois = new ObjectInputStream(bis);
         Object obj = (Object) ois.readObject();
         return obj;
+    }
+
+    public void setNetId(UUID nId) {
+        this.netId = nId;
     }
 }

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.SocketException;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -41,6 +43,14 @@ public class Network {
         socket = new DatagramSocket();
         id = UUID.randomUUID();
     }
+    
+    public Network(InetAddress addr, int p) throws SocketException {
+        socket = new DatagramSocket();
+        id = UUID.randomUUID();
+        setPort(p);
+        setAddress(addr);
+        System.out.println(socket.getLocalAddress().getHostAddress());
+    }
 
     public InetAddress getAddress() {
         return address;
@@ -48,6 +58,17 @@ public class Network {
 
     public void setAddress(InetAddress address) {
         this.address = address;
+    }
+    
+    public static InetAddress getIpAddress() {
+        try {
+            Socket socket = new Socket();
+            socket.connect(new InetSocketAddress("google.com", 80));
+            return socket.getLocalAddress();
+        } catch (IOException ex) {
+            Logger.getLogger(Network.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     public int getPort() {
@@ -71,5 +92,9 @@ public class Network {
         pkt.setAddress(recvd.getAddress());
         pkt.setPort(recvd.getPort());
         return pkt;
+    }
+
+    public UUID getId() {
+        return this.id;
     }
 }
