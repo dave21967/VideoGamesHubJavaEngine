@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 
 public class Scene extends GameObject {
     private String title;
+    private String view;
     private Color background;
 
     public Scene(String t) {
@@ -27,7 +28,13 @@ public class Scene extends GameObject {
         this.background = background;
     }
     
-    
+    public void setView(String v) {
+        this.view = v;
+    }
+
+    public String getView() {
+        return this.view;
+    }
 
     public void onUpdate() {
 

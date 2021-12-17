@@ -1,0 +1,8 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/home/davide/Documenti/Utilities/Java/json-simple-1.1.1.jar",
+    "/home/davide/Documenti/Utilities/Java/mysql-connector-java-5.1.48.jar",
+    "/home/davide/Documenti/Utilities/Java/sqlite-jdbc-3.32.3.2.jar"
+  ]
+}
