@@ -1,0 +1,43 @@
+package vghengine.managers;
+
+public class KeyCode {
+    public static int KEY_NULL = 0;
+    public static int KEY_A  = 97;
+    public static int KEY_B = 98;
+    public static int KEY_C = 99;
+    public static int KEY_D = 100;
+    public static int KEY_E = 101;
+    public static int KEY_F = 102;
+    public static int KEY_G = 103;
+    public static int KEY_H = 104;
+    public static int KEY_I = 105;
+    public static int KEY_J = 106;
+    public static int KEY_K = 107;
+    public static int KEY_L = 108;
+    public static int KEY_M = 109;
+    public static int KEY_N = 110;
+    public static int KEY_O = 111;
+    public static int KEY_P = 112;
+    public static int KEY_Q = 113;
+    public static int KEY_R = 114;
+    public static int KEY_S = 115;
+    public static int KEY_T = 116;
+    public static int KEY_U = 117;
+    public static int KEY_V = 118;
+    public static int KEY_W = 119;
+    public static int KEY_X = 120;
+    public static int KEY_Y = 121;
+    public static int KEY_Z = 122;
+    public static int KEY_SPACE = 32;
+    public static int KEY_ESCAPE = 27;
+    public static int KEY_0 = 48;
+    public static int KEY_1 = 49;
+    public static int KEY_2 = 50;
+    public static int KEY_3 = 51;
+    public static int KEY_4 = 52;
+    public static int KEY_5 = 53;
+    public static int KEY_6 = 54;
+    public static int KEY_7 = 55;
+    public static int KEY_8 = 56;
+    public static int KEY_9 = 57;
+}
