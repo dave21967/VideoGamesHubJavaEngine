@@ -13,7 +13,7 @@ public class Input {
     }
 
     public static void printKeyPressed() {
-        if(keyPressed != 0)
+        if(keyPressed != KeyCode.KEY_NULL)
             System.out.println(keyPressed);
     }
 }

@@ -38,7 +38,7 @@ public class Scene {
         this.background = background;
     }
 
-    public void update(float delta) {
+    public void update() {
 
     }
 }

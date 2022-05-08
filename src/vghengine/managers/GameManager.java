@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.security.Key;
 
 public class GameManager extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
     final int WIDTH;
@@ -47,7 +46,7 @@ public class GameManager extends JPanel implements Runnable, KeyListener, MouseL
             startTime = time;
 
             setBackground(sceneTree.getScene("main").getBackground());
-            sceneTree.getScene("main").update(Time.deltaTime);
+            sceneTree.getScene("main").update();
             this.repaint();
 
             try {
